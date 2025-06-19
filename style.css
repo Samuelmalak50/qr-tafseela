@@ -1,0 +1,166 @@
+:root {
+  --primary-color: #e63946;
+  --dark-bg: #1d1f21;
+  --dark-card: #2a2e32;
+  --dark-text: #ffffff;
+  --light-bg: linear-gradient(135deg, #f5f7fa 0%, #e2e6ea 100%);
+  --light-card: #ffffff;
+  --light-text: #333;
+  --success-color: #27ae60;
+  --error-color: #e74c3c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--light-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.container {
+  background: var(--light-card);
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(4px);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+h1 {
+  color: var(--light-text);
+  font-size: 2.4em;
+  font-weight: 700;
+  flex: 1;
+}
+
+.theme-toggle {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 20px;
+  background: none;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: right;
+  flex: 1;
+  min-width: 200px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  align-items: end;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--light-text);
+  font-weight: 600;
+  font-size: 1em;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 16px;
+  background: #fafafa;
+}
+
+.color-input {
+  width: 60px;
+  height: 50px;
+}
+
+.btn {
+  background: linear-gradient(135deg, var(--primary-color), #c2183b);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.btn.success {
+  background: linear-gradient(135deg, var(--success-color), #2ecc71);
+}
+
+.qr-container {
+  margin-top: 30px;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.qr-container.show {
+  opacity: 1;
+}
+
+#errorMessage,
+.success-message {
+  font-weight: 600;
+  margin-top: 15px;
+  color: var(--error-color);
+}
+
+/* الوضع الليلي */
+body.dark-mode {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.dark-mode .container {
+  background: var(--dark-card);
+  color: var(--dark-text);
+}
+
+body.dark-mode label,
+body.dark-mode h1,
+body.dark-mode span,
+body.dark-mode select,
+body.dark-mode option {
+  color: var(--dark-text);
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+  border-color: #555;
+}
+
+body.dark-mode input::placeholder {
+  color: #bbb;
+}

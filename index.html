@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Code - Tafseela</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🔗 QR Code - Tafseela 🔗</h1>
+      <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>
+
+    <div class="form-group">
+      <label for="qrType">نوع المحتوى:</label>
+      <select id="qrType" onchange="handleTypeChange()">
+        <option value="url">رابط إلكتروني</option>
+        <option value="text">نص عادي</option>
+        <option value="wifi">شبكة WiFi</option>
+        <option value="vcard">جهة اتصال (vCard)</option>
+        <option value="email">بريد إلكتروني</option>
+        <option value="sms">رسالة SMS</option>
+      </select>
+    </div>
+
+    <div id="dynamicFields" class="form-group"></div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="sizeRange">حجم الكود:</label>
+        <input type="range" id="sizeRange" min="100" max="400" value="200" step="25">
+        <span id="sizeValue">200x200</span>
+      </div>
+      <div class="form-group">
+        <label for="foregroundColor">لون الكود:</label>
+        <input type="color" id="foregroundColor" value="#333333" class="color-input">
+      </div>
+      <div class="form-group">
+        <label for="backgroundColor">لون الخلفية:</label>
+        <input type="color" id="backgroundColor" value="#ffffff" class="color-input">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="logoInput">🖼️ إضافة شعار (اختياري):</label>
+      <input type="file" id="logoInput" accept="image/*">
+    </div>
+
+    <div class="form-group">
+      <label for="fileType">💾 نوع الملف:</label>
+      <select id="fileType">
+        <option value="png">PNG</option>
+        <option value="pdf">PDF</option>
+      </select>
+    </div>
+
+    <button class="btn" onclick="generateQR()">🎯 إنشاء الكود المربع</button>
+
+    <div class="qr-container" id="qrContainer">
+      <div class="success-message" id="successMessage">✅ تم إنشاء الكود المربع بنجاح!</div>
+      <div id="qrcode"></div>
+      <div>
+        <button class="btn success" onclick="downloadQR()">💾 تحميل</button>
+      </div>
+    </div>
+
+    <div class="error-message" id="errorMessage"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
